@@ -9,11 +9,10 @@ double get_random(int min, int max) {
 
 double get_pi() {
   double number;
-  const int SQUARE_POINTS = 10000;
+  const int SQUARE_POINTS = 5;
+  sleep(1);
   int circle_points = 0;
-  time_t tt;
-  number = time(&tt);
-  srand(number);
+  srand(getpid());
 
   for (int i = 0; i < SQUARE_POINTS; i++) {
     double x = get_random(0, 1);
@@ -26,7 +25,7 @@ double get_pi() {
 }
 
 int main() {
-  int n = 5;
+  int n = 10;
   pid_t pid;
   for (int i = 0; i < n; i++) {
     pid = fork();
